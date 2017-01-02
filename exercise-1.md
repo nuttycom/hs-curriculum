@@ -55,3 +55,6 @@ Try using the function you've defined as part of a larger function named
 Prelude> let g x = (f x) * 2
 
 ~~~
+
+Play around with f and g a little bit, giving them different arguments.
+See if you can predict what will happen!
