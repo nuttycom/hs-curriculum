@@ -1,7 +1,7 @@
-2. Printing Output & Repeating
+3. Printing Output & Repeating
 ==============================
 
-For the second exercise, we're going to start learning a little
+For the third exercise, we're going to start learning a little
 bit about how to include printing output into our function. Up
 until now, we've been relying upon the ghci interpreter to 
 directly print the output of our function as soon as it has
@@ -38,7 +38,8 @@ The ':{' and ':}' digraphs allow you to write a multi-line expression.
 Prelude> :{
 Prelude| let countdown i = do
 Prelude|     putStrLn $ show i
-Prelude|     if (i == 0) then pure () else countdown (i - 1)
+Prelude|     if (i == 0) then pure () 
+Prelude|                 else countdown (i - 1)
 Prelude| :}
 
 ~~~
