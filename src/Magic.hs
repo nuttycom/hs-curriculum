@@ -1,4 +1,4 @@
-module Ex4 where
+module Magic where
 
 data Color 
   = White
@@ -18,6 +18,14 @@ readColor "green" = Just Green
 readColor "none"  = Just Colorless
 readColor _ = Nothing
 
+landName :: Color -> String
+landName White = "plains"
+landName Blue = "islands"
+landName Black = "swamps"
+landName Red = "mountains"
+landName Green = "forests"
+landName Colorless = "wastes"
+
 data ColorCount = CC Color Int
 
 main :: IO ()
@@ -25,13 +33,13 @@ main = do
   l <- promptLands
   r <- promptColor Red
   g <- promptColor Green
-  print (Red,   landProp <$> r <*> g <*> l)
-  print (Green, landProp <$> g <*> r <*> l)
+  putStrLn (concat ["Use ", show (landFrac <$> r <*> g <*> l), " ", landName Red])
+  putStrLn (concat ["Use ", show (landFrac <$> g <*> r <*> l), " ", landName Green])
 
-landProp :: (Fractional n) => n -> n -> n -> n
-landProp primary other total = 
+landFrac :: Double -> Double -> Double -> Int 
+landFrac primary other total = 
   let frac = primary / (primary + other)
-  in  frac * total
+  in  round (frac * total)
 
 promptColor :: (Read n) => Color -> IO (Maybe n)
 promptColor c = do
