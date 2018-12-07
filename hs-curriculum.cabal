@@ -1,0 +1,31 @@
+cabal-version:       2.2
+name:                hs-curriculum
+version:             0.1.0.0
+license:             BSD-3-Clause
+license-file:        LICENSE
+author:              Kris Nuttycombe
+maintainer:          kris.nuttycombe@gmail.com
+build-type:          Simple
+
+library
+  exposed-modules:     
+      Introlude
+    , LoH.Game
+    , LoH.GuessMe
+    , Magic.LandCalc
+  -- other-modules:
+  default-extensions: 
+    NoImplicitPrelude
+    DataKinds
+    LambdaCase
+    MultiParamTypeClasses
+    OverloadedStrings
+    ScopedTypeVariables
+    RankNTypes
+    GADTs
+  build-depends:       
+      base 
+    , text
+    , containers
+  hs-source-dirs:      src
+  default-language:    Haskell2010
