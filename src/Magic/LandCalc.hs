@@ -1,12 +1,14 @@
 {-# LANGUAGE ScopedTypeVariables #-}
-module Magic where
+module Magic.LandCalc where
+
+import Prelude
 
 {- Create a data type whose constructors represent the different colors
- - of mana. `Color` is the *type* that we are defining, and `White`, 
+ - of mana. `Color` is the *type* that we are defining, and `White`,
  - `Blue`, `Black` etc. are each 0-argument functions that construct different
  - values of the type `Color`
  -}
-data Color 
+data Color
   = White
   | Blue
   | Black
@@ -60,10 +62,10 @@ landFrac :: Int -- the count of color symbols for the color for which you want a
          -> Int -- the total count of color symbols which are *not* the primary color
          -> Int -- the total number of lands desired for the final deck
          -> Int -- the result will be the number of lands of the primary color that you should use
-landFrac primary other lands = 
+landFrac primary other lands =
   let primary' :: Double -- convert the number of primary-color symbols to a double-precision floating point value, for division
-      primary' = fromIntegral primary 
-      
+      primary' = fromIntegral primary
+
       other' :: Double -- convert the number of other mana symbols to a double-precision floating point value, for division
       other' = fromIntegral other
 
@@ -112,6 +114,6 @@ prompt p = do
  - function in a future version.
  -}
 safeRead :: (Read n) => String -> Maybe n
-safeRead s = case reads s of 
+safeRead s = case reads s of
   [] -> Nothing
   [(f, _)] -> Just f
